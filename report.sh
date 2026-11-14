@@ -132,6 +132,11 @@ cat > /var/www/html/viikko3/index.html <<EOF
     I learned how important correct syntax is in Bash.
 </p>
 </div>
+<p>
+    <a href="https://github.com/EmppuLyytinen/Linuxweek3">
+        View my GitHub project :)
+    </a>
+</p>
 </body>
 </html>
 EOF
