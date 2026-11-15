@@ -43,23 +43,69 @@ cat > /var/www/html/viikko3/index.html <<EOF
     h1, h2, h3 {
         color: #60a5fa;
     }
-.status-box {
+    .status-box {
     background: #1c2b44;
     border: 1px solid #334155;
     border-radius: 12px;
     padding: 15px 25px;
     margin: 12px 0;
 }
+	.compact{
+	padding: 6px 18px;
+	margin: 7px 0;
+}
+	.compact {
+	margin: 5px 0;
+}
+	.OK {
+	color: #4ade80;
+	font-weight: bold;
+}
+	.WARNING {
+	color: #f87171;
+	font-weight: bold;
+}
+	a {
+	color: #60a5fa;
+	text-decoration: none;
+}
+	a:hover {
+	color: #93c5fd;
+	text-decoration: underline;
+}
+	.links {
+	display: flex;
+	gap: 12px;
+	flex-wrap: wrap;
+}
+	.link-box {
+	background: #283750;
+	border: 1px solid #334155;
+	border-radius: 8px;
+	padding: 10px 18px;
+	text-decoration: none;
+	font-weight: bold;
+}
+	.link-box:hover {
+	background: #334766;
+}
+	.tux {
+	width: 40px;
+	height: auto;
+	vertical-align: middle;
+	margin-left: 8px;
+}
+
 </style>
 <body>
-    <h1>My Linux Server Status</h1>
+    <h1>My Linux Server Status <img src="/tux.png" alt="Linux Tux" class="tux"></h1>
 
-    <div class="status-box"><p>Report generated: $GENERATED_AT</p></div>
-    <div class="status-box"><p>Server uptime: $UPTIME_TEXT</p></div>
-    <div class="status-box"><p>Disk usage: $DISK_USAGE</p></div>
-    <div class="status-box"><p>Disk status: $DISK_STATUS</p></div>
-    <div class="status-box"><p>Total RAM: $MEM_TOTAL MiB</p></div>
-    <div class="status-box"><p>Available RAM: $MEM_AVAILABLE MiB</p></div>
+    <div class="status-box compact"><p>Report generated: $GENERATED_AT</p></div>
+    <div class="status-box compact"><p>Server uptime: $UPTIME_TEXT</p></div>
+    <div class="status-box compact"><p>Disk usage: $DISK_USAGE</p></div>
+    <div class="status-box compact"><p>Disk status: <span class="$DISK_STATUS"> $DISK_STATUS</span></p></div>
+    <div class="status-box compact"><p>Total RAM: $MEM_TOTAL MiB</p></div>
+    <div class="status-box compact"><p>Available RAM: $MEM_AVAILABLE MiB</p></div>
 <div class="status-box">	
 <h2>Commands used</h2>
 
@@ -77,15 +123,15 @@ cat > /var/www/html/viikko3/index.html <<EOF
 <h2>How does the script work?</h2>
 
 <p>
-    The Bash script collects server information using
-    Linux commands and stores the results in variables.
+    Bash script collects server information using
+    linux commands and stores the results in variables.
     It generates an HTML report using the collected data.
 </p>
 
 <p>
     A function checks the disk usage percentage.
     If usage is 80% or higher, the status is WARNING.
-    Otherwise, the status is OK.
+    Otherwise the status is OK.
 </p>
 </div>
 <div class="status-box">
@@ -108,9 +154,9 @@ cat > /var/www/html/viikko3/index.html <<EOF
 <div class="status-box">
 <h3>Disk status tests</h3>
 <ul>
-    <li>50% - OK</li>
-    <li>80% - WARNING</li>
-    <li>90% - WARNING</li>
+    <li>50% - <span class="OK">OK</span></li>
+    <li>80% - <span class="WARNING">WARNING</span></li>
+    <li>90% - <span class="WARNING">WARNING</span></li>
 </ul>
 </div>
 <div class="status-box">
@@ -133,9 +179,14 @@ cat > /var/www/html/viikko3/index.html <<EOF
 </p>
 </div>
 <p>
-    <a href="https://github.com/EmppuLyytinen/Linuxweek3">
-        View my GitHub project :)
-    </a>
+<div class="links">
+    <a class="link-box" href="https://github.com/EmppuLyytinen/Linuxweek3">
+        View my GitHub project</a>
+	<a class="link-box" href="http://193.166.24.211/">Visit my Week 1 site</a>
+	<a class="link-box" href="http://193.166.24.211/week2/">Visit my Week 2 site</a>
+</div>
+
+
 </p>
 </body>
 </html>
