@@ -182,8 +182,8 @@ cat > /var/www/html/viikko3/index.html <<EOF
 <div class="links">
     <a class="link-box" href="https://github.com/EmppuLyytinen/Linuxweek3">
         View my GitHub project</a>
-	<a class="link-box" href="http://193.166.24.211/">Visit my Week 1 site</a>
-	<a class="link-box" href="http://193.166.24.211/week2/">Visit my Week 2 site</a>
+	<a class="link-box" href="http://193.166.24.211/week1">Visit my Week 1 site</a>
+	<a class="link-box" href="http://193.166.24.211/week2">Visit my Week 2 site</a>
 </div>
 
 
